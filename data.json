@@ -1,0 +1,40 @@
+{"Presidents":[
+        {
+           "imgPath": "img/Barack.png",
+            "firstName":"Barack",
+            "lastName":"Obama",
+            "YearInauguratedPresident": {
+                "month":"January",
+                "day":20,
+                "year":2009
+               
+            }
+        },
+        {
+            "firstName":"George W",
+            "lastName":"Bush",
+            "YearInauguratedPresident": {
+                "month":"January",
+                "day":20,
+                "year":2001
+				}
+            },
+			     {
+            "firstName":"Bill",
+            "lastName":"Clinton",
+            "YearInauguratedPresident": {
+                "month":"January",
+                "day":20,
+                "year":1993
+				}
+            },
+			     {
+            "firstName":"George",
+            "lastName":"H.W Bush",
+            "YearInauguratedPresident": {
+                "month":"January",
+                "day":20,
+                "year":1989
+            }
+        }
+]}

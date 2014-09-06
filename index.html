@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JSON Presidents</title>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+        
+        body{
+            font-family:arial, helvetica, sans-serif;
+        text-align:center;
+            width:100%;
+                   }
+
+header{
+background:#c2ac7f;
+height:250px;
+width:100%;
+border-top:5px solid #675531;
+border-bottom:5px solid #675531;
+}
+
+        header h1{
+            font-family: 'Ubuntu', sans-serif;
+            font-size:75px;
+            color:#a0844c;
+            opacity:.5;
+            font-weight:bold;
+            text-shadow:2px 2px 1px rgba(8,2,2,1)
+        }
+        
+        .SandboxText{
+            float:right;
+            font-family: 'Lobster', cursive;
+            font-size:24px;
+            color:#675531;
+            margin:0 50px 0 0;
+            
+            
+        }
+                
+
+
+h2{
+font-family:arial, helvetica, sans-serif;
+font-size:32px;
+color:#2a1c0b;
+}
+        
+	#PresidentInfo{
+	width:75%;
+	margin:0 auto;
+       
+        
+	}
+        
+        table#data{
+            width:100%;
+
+        }
+        
+        table#data th{
+            background:#333;
+            color:#fff;
+            text-align:center;
+            text-shadow:1px 1px 1px rgba(0,0,0,1);
+            padding:5px;
+        }
+        
+        table#data td{
+            border:1px solid #333;
+            border-collapse:collapse;
+            padding:10px;
+           text-align:center;
+            font-size:24px;
+           font-weight:bold;
+           color:#339;
+text-shadow:1px 1px 1px rgba(0,0,0,1)
+
+
+}
+        
+            
+           table#data td img{
+            
+ -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+            
+            }
+        
+table tr:nth-child(odd)	{
+  background-color: #ddd;
+}
+table tr:nth-child(even) {
+  background-color: #fff;
+}          
+	
+
+	
+	
+	</style>
+</head>
+<body>
+<header>
+<h1>Inspired-Evolution.com</h1>
+<span class="SandboxText">Sandbox - Learning JSON</span>
+</header>
+    <p>
+    <strong>Info:</strong> In this case study, I wanted to learn more about <a href="http://json.org/" title="JavaScript Object Notation">JSON</a> and how you can pull in JSON formatted data using JQuery <a href="http://api.jquery.com/jquery.getjson/" title="JQuery getJSON method">getJSON()</a> method.</p>
+    <p>I decided to use the last four U.S Presidents and use te following information. Their official portrait, first and last name, Inauguration month, day and year. 
+    </p>
+    <p>Pretty easy to do once you have the hang of it. The JSON formatting can be a bit tricky. A great tool I discovered is <a href="http://jsonlint.com/" title="JSON Lint">JSONLint</a> to check your JSON formatting. </p>
+    <p>Now that I have the basics of pulling in JSON code in HTML via JQuery, I am confident I can move into much more complex JavaScript application development.</p>
+    <p>Check out the code I used to create this case study on my <a href="https://github.com/webguync">GitHub</a> account.</p>
+        <h2>The last four Presidents of the United States</h2>
+    <div id="PresidentInfo">
+  
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	   <script>
+           (function ($) {
+$(document).ready (function(){
+   $("tr:odd").addClass("odd");
+    });
+});
+})(jQuery);
+</script>
+    <script>
+  $.getJSON('data.json', function(data) {
+        var output="<table id='data'><tr><th>President</th><th>First Name:</th><th>Last Name:</th><th>Inauguration Day</th><th>Month of Inauguration:</th><th>Year of Inauguration:</th></tr>";
+        for (var i in data.Presidents) {
+            output+="<tr><td><img src='" + data.Presidents[i].imgPath + "'</img></td><td>" + data.Presidents[i].firstName + "</td><td>" + data.Presidents[i].lastName + "</td><td>" + data.Presidents[i].InauguratedPresident.day + "</td><td>" + data.Presidents[i].InauguratedPresident.month +  "</td><td>" + data.Presidents[i].InauguratedPresident.year + "</td></tr>";
+        }
+
+        output+="</tr></table>";
+        document.getElementById("PresidentInfo").innerHTML=output;
+  });
+    </script>
+ 
+</body>
+</html>
